@@ -289,7 +289,7 @@
     <!-- END HERO SECTION -->
 
     <!-- Populer MOVIES SECTION -->
-    <div class="section">
+    <div class="section" id="#popular">
         <div class="container">
             <div class="section-header">
                 Popular movies
@@ -323,30 +323,30 @@
     </div>
     <!-- END LATEST MOVIES SECTION -->
 
-    <!-- upComing MOVIES SECTION -->
-    <div class="section">
+    <!-- Populer MOVIES SECTION -->
+    <div class="section" id="#popular">
         <div class="container">
             <div class="section-header">
                 UpComing movies
             </div>
             <div class="movies-slide carousel-nav-center owl-carousel">
                 <!-- MOVIE ITEM -->
-                @foreach($upComing as $coming)
+                @foreach($upComing as $data)
                 <a href="#" class="movie-item">
-                    <img src="{{ 'https://image.tmdb.org/t/p/w500' . $coming['poster_path'] }}" alt="">
+                    <img src="{{ 'https://image.tmdb.org/t/p/w500' . $data['poster_path'] }}" alt="">
                     <div class="movie-item-content">
                         <div class="movie-item-title">
-                            {{ $coming['title'] }}
+                            {{ $data['title'] }}
                         </div>
                         <div class="movie-infos">
                             <div class="movie-info">
                                 <i class="bx bxs-star"></i>
-                                <span>{{ $coming['vote_average'] }}</span>
+                                <span>{{ $data['vote_average'] }}</span>
                             </div>
                         </div>
                         <div class="movie-infos">
                             <div class="movie-info">
-                                <span>{{ \Carbon\Carbon::parse($coming['release_date'])->format('d M y') }}</span>
+                                <span>{{ \Carbon\Carbon::parse($data['release_date'])->format('d M y') }}</span>
                             </div>
                         </div>
                     </div>
@@ -358,30 +358,30 @@
     </div>
     <!-- END LATEST MOVIES SECTION -->
 
-    <!-- Latest MOVIES SECTION -->
-    <div class="section">
+    <!-- Populer MOVIES SECTION -->
+    <div class="section" id="#popular">
         <div class="container">
             <div class="section-header">
-                Latest movies
+                Now Playing
             </div>
             <div class="movies-slide carousel-nav-center owl-carousel">
                 <!-- MOVIE ITEM -->
-                @foreach($latest as $late)
+                @foreach($nowPlay as $data)
                 <a href="#" class="movie-item">
-                    <img src="{{ 'https://image.tmdb.org/t/p/w500' . $late['poster_path'] }}" alt="">
+                    <img src="{{ 'https://image.tmdb.org/t/p/w500' . $data['poster_path'] }}" alt="">
                     <div class="movie-item-content">
                         <div class="movie-item-title">
-                            {{ $late['title'] }}
+                            {{ $data['title'] }}
                         </div>
                         <div class="movie-infos">
                             <div class="movie-info">
                                 <i class="bx bxs-star"></i>
-                                <span>{{ $late['vote_average'] }}</span>
+                                <span>{{ $data['vote_average'] }}</span>
                             </div>
                         </div>
                         <div class="movie-infos">
                             <div class="movie-info">
-                                <span>{{ \Carbon\Carbon::parse($late['release_date'])->format('d M y') }}</span>
+                                <span>{{ \Carbon\Carbon::parse($data['release_date'])->format('d M y') }}</span>
                             </div>
                         </div>
                     </div>

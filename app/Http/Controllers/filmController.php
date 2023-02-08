@@ -15,16 +15,16 @@ class filmController extends Controller
 
         $upComing = Http::withToken('eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MzAxYThjYzBiNTEyM2I1YWYwZjNhZTdlYTEwNDU4MiIsInN1YiI6IjYzZDlmMDY3OTU1YzY1MDBhODQzMGJkMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Z3cqYgX8knBos87nQRpNrNQ-czciGvF3iyCcjKCwF18')
         ->get('https://api.themoviedb.org/3/movie/upcoming')
-        ->json();
+        ->json()['results'];
 
-        $latest = Http::withToken('eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MzAxYThjYzBiNTEyM2I1YWYwZjNhZTdlYTEwNDU4MiIsInN1YiI6IjYzZDlmMDY3OTU1YzY1MDBhODQzMGJkMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Z3cqYgX8knBos87nQRpNrNQ-czciGvF3iyCcjKCwF18')
-        ->get('https://api.themoviedb.org/3/movie/latest')
+        $nowPlay = Http::withToken('eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MzAxYThjYzBiNTEyM2I1YWYwZjNhZTdlYTEwNDU4MiIsInN1YiI6IjYzZDlmMDY3OTU1YzY1MDBhODQzMGJkMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Z3cqYgX8knBos87nQRpNrNQ-czciGvF3iyCcjKCwF18')
+        ->get('https://api.themoviedb.org/3/movie/now_playing')
         ->json();
         
         return view('film', [
             'populerMovie' => $populerMovie,
             'upComing' => $upComing,
-            'latest' => $latest
+            'nowPlay' => $nowPlay,
         ]);
     }
 }
